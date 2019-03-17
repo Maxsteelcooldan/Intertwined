@@ -1,0 +1,11 @@
+ body {
+                color: white;
+                background: black;
+                font-family: 'Sniglet',cursive;
+            }
+            button {
+                font-family: 'Sniglet',cursive;
+                border:none;
+                background:#2196F3;
+                outline:none;
+            }
