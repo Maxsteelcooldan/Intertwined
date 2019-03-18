@@ -8,6 +8,9 @@ body {
   border:none;
   background:#2196F3;
   outline:none;
+  position: absolute;
+  left:1000px;
+  top:300px;
 }
 .text {
  background-color: white;
@@ -43,10 +46,7 @@ body {
   border:none;
   background:#2196F3;
   outline:none;
-  position: absolute;
-  left:1000px;
-  top:300px;
-}
+ }
 
 
 
