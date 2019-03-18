@@ -10,12 +10,10 @@ button {
   outline:none;
 }
 text {
- font-family: 'Sniglet',cursive;
- width: 5px solid white;
- border: 25px;
- padding: 25px;
- width: 80px;
- position: absolute;
- left: 780px;
- top: 40px;
+ background-color: lightgrey;
+  width: 300px;
+  border: 25px solid green;
+  padding: 50px;
+  margin: 25px;
+  font-family: Sniglet',cursive;
 }
