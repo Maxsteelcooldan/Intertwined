@@ -16,4 +16,7 @@ button {
   padding: 50px;
   margin: 25px;
   font-family: 'Sniglet',cursive;
+  position: absolute;
+  left: 750px;
+  top: 50px;
 }
