@@ -21,3 +21,28 @@ button {
   top: 50px;
   color: black;
 }
+.MainCharacter {
+  position: absolute;
+  left: 750px;
+  top: 200;
+}
+.introformc {
+  background-color: white;
+  width: 200px;
+  border: none;
+  padding: 25px;
+  margin: 25px;
+  font-family: 'Sniglet',cursive;
+  position: absolute;
+  left: 750px;
+  top: 200px;
+  color: black;
+}
+
+
+
+
+
+
+
+
