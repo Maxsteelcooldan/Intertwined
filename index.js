@@ -6,7 +6,7 @@ $("#play").click(()=>{
 function Game () {
   this.Box = function (text) {
     this.text = text;
-    $('#box').innerText = text;
+    $('#box').text(text);
   }
 }
 
