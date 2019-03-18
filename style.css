@@ -11,9 +11,9 @@ button {
 }
 .text {
  background-color: white;
-  width: 100px;
+  width: 300px;
   border: none;
-  padding: 20px;
+  padding: 10px;
   margin: 25px;
   font-family: 'Sniglet',cursive;
   position: absolute;
