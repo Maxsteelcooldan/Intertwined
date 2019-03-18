@@ -12,7 +12,7 @@
 .text {
  background-color: white;
   width: 80px;
-  border: 25px solid green;
+  border: none;
   padding: 50px;
   margin: 25px;
   font-family: 'Sniglet',cursive;
