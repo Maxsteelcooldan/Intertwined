@@ -3,7 +3,7 @@ body {
   background: black;
   font-family: 'Sniglet',cursive;
 }
-.arrow {
+#arrow {
   font-family: 'Sniglet',cursive;
   border:none;
   background:#2196F3;
@@ -38,7 +38,7 @@ body {
   top: 500px;
   color: black;
 }
-.play {
+#play {
   font-family: 'Sniglet',cursive;
   border:none;
   background:#2196F3;
