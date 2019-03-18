@@ -3,7 +3,7 @@ $("#play").click(()=>{
   $("#game").show();
 });
 
-$("#play").click(()=>{
+$("#arrow").click(()=>{
   $("#game").hide();
   $("#start").show();
 });
