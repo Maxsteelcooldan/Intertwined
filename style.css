@@ -10,8 +10,8 @@ button {
   outline:none;
 }
 .text {
- background-color: lightgrey;
-  width: 300px;
+ background-color: white;
+  width: 80px;
   border: 25px solid green;
   padding: 50px;
   margin: 25px;
