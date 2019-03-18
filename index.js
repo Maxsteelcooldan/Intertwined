@@ -3,6 +3,10 @@ $("#play").click(()=>{
   $("#game").show();
 });
 
+$("#play").click(()=>{
+  $("#game").hide();
+  $("#start").show();
+});
 function Game () {
   this.box = function (text) {
     this.text = text;
