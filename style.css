@@ -48,6 +48,7 @@ body {
   border:none;
   background:#2196F3;
   outline:none;
+  cursor: pointer;
  }
 #one {
   font-family: 'Sniglet',cursive;
