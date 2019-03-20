@@ -10,7 +10,7 @@ $("#arrow").click(()=>{
 
 $("#one").click(()=>{
   $("#hide").hide();
-  $("#").show();
+  $("#levelone").show();
 });
 
 function Game () {
