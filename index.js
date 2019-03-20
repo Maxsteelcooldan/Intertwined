@@ -9,7 +9,7 @@ $("#arrow").click(()=>{
 });
 
 $("#one").click(()=>{
-  $("#hide").hide();
+  $("#start").hide();
   $("#levelone").show();
 });
 
