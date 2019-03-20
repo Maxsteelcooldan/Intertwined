@@ -8,6 +8,11 @@ $("#arrow").click(()=>{
   $("#start").show();
 });
 
+$("#one").click(()=>{
+  $("#hide").hide();
+  $("#").show();
+});
+
 function Game () {
   this.box = function (text) {
     this.text = text;
