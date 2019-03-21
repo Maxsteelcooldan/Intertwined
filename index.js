@@ -13,6 +13,11 @@ $("#one").click(()=>{
   $("#levelone").show();
 });
 
+$("#backone").click(()=>{
+  $("#levelone").hide();
+  $("#start").show();
+});
+
 function Game () {
   this.box = function (text) {
     this.text = text;
