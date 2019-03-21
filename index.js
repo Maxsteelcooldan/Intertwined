@@ -13,7 +13,7 @@ $("#one").click(()=>{
   $("#levelone").show();
 });
 
-$("#backone").click(()=>{
+$("#back1").click(()=>{
   $("#levelone").hide();
   $("#start").show();
 });
