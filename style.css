@@ -115,7 +115,7 @@ body {
   border:none
   background:#2196F3;
   position: absolute;
-  left:300px;
+  left:100px;
   top:400px;
   padding: 20px;
 }
@@ -128,19 +128,19 @@ body {
   padding: 50px;
   margin: 30px;
   position: absolute;
-  left: 500px;
+  left: 300px;
   top: 500px;
 }
 
 #sky {
   font-family: 'Sniglet',cursive;
-  background-color: #44f441;
+  background-color: #42f4d7;
   width: 800px;
   border: none;
   padding: 300px;
   margin: 30px;
   position: absolute;
-  left: 500px;
+  left: 300px;
   top: 100px;
 }
 
