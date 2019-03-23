@@ -147,13 +147,13 @@ body {
 
 #oneob {
   border:none;
+  wdith: 100px;
   background:black;
   outline:none;
   position: absolute;
   left:500px;
-  top:600px;
+  top:500px;
   padding: 20px;
-  cursor: pointer;
 }
 
 
