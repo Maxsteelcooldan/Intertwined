@@ -147,11 +147,11 @@ body {
 
 #oneob {
   border:none;
-  wdith: 100px;
+  wdith: 200px;
   background:black;
   outline:none;
   position: absolute;
-  left:500px;
+  left: 600px;
   top:500px;
   padding: 20px;
 }
