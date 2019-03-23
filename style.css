@@ -109,11 +109,12 @@ body {
 #backone {
   font-family: 'Sniglet',cursive;
   border:none
-  background:#2196F3;
+  background: #2196F3;
   position: absolute;
   left:100px;
   top:400px;
   padding: 20px;
+  cursor:pointer;
 }
 
 #green {
