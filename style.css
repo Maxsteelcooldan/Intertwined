@@ -146,10 +146,14 @@ body {
 }
 
 #oneob {
+  border:none;
+  background:black;
+  outline:none;
   position: absolute;
-  left: 500px;
-  top: 600px;
-  background-color: white;
+  left:500px;
+  top:600px;
+  padding: 20px;
+  cursor: pointer;
 }
 
 
