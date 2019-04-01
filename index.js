@@ -31,7 +31,7 @@ var box = new game.box('In a world where mankind has been turned into non-living
 
 var main = document.querySelector('#main')
 $(document).keydown((e)=>{
-  var position = $("main").position();
+  var position = $("#main").position();
   key=e.key.toLowerCase();
   if(key=='w'){
     $("#main").css('top', position.top - 2 + 'px');
