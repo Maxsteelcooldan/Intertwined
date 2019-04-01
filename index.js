@@ -37,6 +37,6 @@ $(document).keydown((e)=>{
     $("#main").css('top', position.top - 20 + 'px');
   }
       if(key=='a'){
-    $("#main").css('left', position.left - 20 - 'px');
+    $("#main").css('left', position.left - 20 + 'px');
   }
 });
