@@ -28,3 +28,15 @@ function Game () {
 
 var game = new Game();
 var box = new game.box('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
+
+var main = document.querySelector('#main')
+$(document).keydown(function(e) {
+var position = $("main").position();
+
+  switch (e.keyCode)
+  {
+    case 87:
+   $("#main").css('top', position.top - 2 + 'px');
+   break;
+  }
+});
