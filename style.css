@@ -142,7 +142,7 @@ body {
 #main {
   position: absolute;
   left:300px;
-  top:500px;
+  top:510px;
 }
 
 #oneob {
@@ -152,7 +152,7 @@ body {
   outline:none;
   position: absolute;
   left: 600px;
-  top:510px;
+  top:600px;
   padding: 20px;
 }
 
