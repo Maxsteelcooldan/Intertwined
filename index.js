@@ -34,6 +34,6 @@ $(document).keydown((e)=>{
   var position = $("#main").position();
   key=e.key.toLowerCase();
   if(key=='w'){
-    $("#main").css('top', position.top - 2 + 'px');
+    $("#main").css('top', position.top - 20 + 'px');
   }
 });
