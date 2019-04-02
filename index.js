@@ -14,12 +14,12 @@ $("#one").click(()=>{
 });
 
 $("#back").click(()=>{
-  $("#game").hide();
+  $("#levels").hide();
   $("#start").show();
 });
 $('#box').text('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
 var game = new world();
-$('#game').append(game.el);
+$('#levels').append(game.el);
 var player=new game.critter(0,0,50,50,0,'<img src="Block.png">','player');
 var key={};
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
