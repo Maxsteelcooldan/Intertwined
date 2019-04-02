@@ -42,4 +42,7 @@ $(document).keydown((e)=>{
    if(key=='d'){
     $("#main").css('right', position.right - 20 - 'px');
   }
+  if(key=='s'){
+    $("#main").css('right', position.right - 20 - 'px');
+  }
 });
