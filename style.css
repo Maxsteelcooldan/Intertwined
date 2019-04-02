@@ -55,6 +55,7 @@ body {
 }
 #start button {
   font-family: 'Sniglet',cursive;
+  height:50px;
   border:none;
   background:#2196F3;
   outline:none;
