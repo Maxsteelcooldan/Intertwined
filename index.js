@@ -36,3 +36,10 @@ setInterval(()=>{
   }
 }, 15);
 
+$('#canvasone').show();
+//organize your elements into an object so you dont run jquery over and over again
+/*like this: game.elements = {
+  a: $('#a'),
+  b: $('#b'),
+  c: $('#c')
+}*/
