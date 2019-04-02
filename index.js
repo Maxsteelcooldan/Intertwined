@@ -21,6 +21,7 @@ $('#box').text('In a world where mankind has been turned into non-living objects
 var game = new world();
 $('#game').append(game.el);
 var player=new game.critter(0,0,50,50,0,'<img src="Block.png">','player');
+var key={};
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
 setInterval(()=>{
