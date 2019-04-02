@@ -39,4 +39,7 @@ $(document).keydown((e)=>{
       if(key=='a'){
     $("#main").css('left', position.left - 20 + 'px');
   }
+   if(key=='d'){
+    $("#main").css('right', position.right - 20 - 'px');
+  }
 });
