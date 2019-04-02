@@ -46,3 +46,8 @@ $(document).keydown((e)=>{
     $("#main").css('top', position.top + 20 + 'px');
   }
 });
+
+var gravity = 0.4
+
+  if (main.y<cnvs.height-12.5){main.y+=gravity}
+
