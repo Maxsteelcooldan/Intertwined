@@ -13,41 +13,25 @@ $("#one").click(()=>{
   $("#levelone").show();
 });
 
-$("#backone").click(()=>{
-  $("#levelone").hide();
+$("#back").click(()=>{
+  $("#game").hide();
   $("#start").show();
 });
-
-function Game () {
-  this.box = function (text) {
-    this.text = text;
-    $('#box').text(text);
+$('#box').text('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
+var game = new world();
+$('#game').append(game.el);
+var player=new game.critter(0,0,50,50,0,'<img src="Block.png">','player');
+document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
+document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
+setInterval(()=>{
+  if(key['w']){
+     
+  }if(key['a']){
+    
+  }if(key['s']){
+    
+  }if(key['d']){
+    
   }
-}
-
-
-var game = new Game();
-var box = new game.box('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
-
-var main = document.querySelector('#main')
-$(document).keydown((e)=>{
-  var position = $("#main").position();
-  key=e.key.toLowerCase();
-  if(key=='w'){
-    $("#main").css('top', position.top - 20 + 'px');
-  }
-      if(key=='a'){
-    $("#main").css('left', position.left - 20 + 'px');
-  }
-   if(key=='d'){
-    $("#main").css('left', position.left + 20 + 'px');
-  }
-  if(key=='s'){
-    $("#main").css('top', position.top + 20 + 'px');
-  }
-});
-
-var gravity = 0.4
-
-  if (main.y<cnvs.height-12.5){main.y+=gravity}
+}, 15);
 
