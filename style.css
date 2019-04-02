@@ -46,66 +46,20 @@ body {
   outline:none;
   cursor: pointer;
  }
-#one {
+#start {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 5px;
+    text-align: center;
+    width: 100%;
+}
+#start button {
   font-family: 'Sniglet',cursive;
   border:none;
   background:#2196F3;
   outline:none;
-  position: absolute;
-  left:700px;
-  top:300px;
-  padding: 20px;
   cursor: pointer;
 }
-
-#two {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  position: absolute;
-  left:800px;
-  top:300px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-#three {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  position: absolute;
-  left:900px;
-  top:300px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-#four {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  position: absolute;
-  left:1000px;
-  top:300px;
-  padding: 20px;
-  cursor: pointer;
-}
-
-#five {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  position: absolute;
-  left:1100px;
-  top:300px;
-  padding: 20px;
-  cursor: pointer;
-}
-
 #backone {
   font-family: 'Sniglet',cursive;
   border:none
