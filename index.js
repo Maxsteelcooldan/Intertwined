@@ -21,7 +21,7 @@ $('#box').text('In a world where mankind has been turned into non-living objects
 var game = new world();
 $('#levels').append(game.el);
 game.el.style.background = "#42f4d7";
-var player=new game.critter(0,0,50,50,0,'<img src="Block.png">','player');
+var player=new game.critter(0,0,50,50,0,'<img src="Block.png" style="width:100%"','player');
 var key={};
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
