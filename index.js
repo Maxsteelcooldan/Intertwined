@@ -8,11 +8,6 @@ $("#arrow").click(()=>{
   $("#start").show();
 });
 
-$("#one").click(()=>{
-  $("#start").hide();
-  $("#levels").show();
-});
-
 $("#back").click(()=>{
   $("#levels").hide();
   $("#start").show();
@@ -25,8 +20,18 @@ var ground =new game.rect(0,600,500,50,0,'green');
 var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 var key={};
 var gravity = 0.4;
-levels =  [ function() {levelone}, function() {leveltwo} ]
-player.movey(gravity);
+levels =  [
+  function() {
+    player.movey(gravity);
+  }, function() {
+    //leveltwo
+  }
+];
+$("#one").click(()=>{
+  $("#start").hide();
+  $("#levels").show();
+  setInterval(levels[0],16);
+});
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
 setInterval(()=>{
