@@ -28,13 +28,13 @@ document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
 setInterval(()=>{
   if(key['w']){
-     
+         player.move.y(-2);
   }if(key['a']){
-    
+         player.move.x(-2);
   }if(key['s']){
-    
+         player.move.x(2);
   }if(key['d']){
-    
+         player.move.y(2);
   }
 }, 15);
 
