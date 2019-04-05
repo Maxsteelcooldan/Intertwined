@@ -25,7 +25,7 @@ var ground =new game.rect(0,600,500,50,0,'green');
 var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 var key={};
 var gravity = 0.4;
-player.movey(gravity)
+player.movey('gravity');
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
 setInterval(()=>{
