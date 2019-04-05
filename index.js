@@ -8,7 +8,7 @@ $("#arrow").click(()=>{
   $("#start").show();
 });
 
-$("#back").click(()=>{
+$("#backone").click(()=>{
   $("#levels").hide();
   $("#start").show();
 });
