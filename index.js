@@ -22,8 +22,10 @@ var game = new world();
 $('#levels').append(game.el);
 game.el.style.background = "#42f4d7";
 var ground =new game.rect(0,600,500,50,0,'green');
-var player=new game.critter(0,0,50,50,0,'<img src="Block.png" style="width:100%">','player');
+var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 var key={};
+var gravity = 0.4;
+player.movey(gravity)
 document.onkeypress=(e)=>key[e.key.toLowerCase()]=e.type=true;
 document.onkeyup=(e)=>key[e.key.toLowerCase()]=false;
 setInterval(()=>{
