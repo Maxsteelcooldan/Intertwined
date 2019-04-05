@@ -32,9 +32,9 @@ setInterval(()=>{
   }if(key['a']){
          player.movex(-2);
   }if(key['s']){
-         player.movex(2);
-  }if(key['d']){
          player.movey(2);
+  }if(key['d']){
+         player.movex(2);
   }
 }, 15);
 
