@@ -19,7 +19,7 @@ game.el.style.background = "#42f4d7";
 var ground =new game.rect(0,600,500,50,0,'green');
 var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 var key={};
-var gravity = 0.4;
+var gravity = 1;
 levels =  [
   function() {
     player.movey(gravity);
