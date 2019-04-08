@@ -31,7 +31,7 @@ player {
   height:32,
   jumping:true,
   width:32,
-  x:144, // center of the canvas
+  x:144,
   x_velocity:0,
   y:0,
   y_velocity:0
@@ -61,6 +61,27 @@ controller {
   }
 };
 
+loop = function() {
+  if (controller.up && player.jumping == false) {
+    player.y_velocity -= 15;
+    player.jumping = true;
+  }
+  if(controller.left) {
+    player.x_velocity -= 15;
+  }
+  if(controller.right) {
+    player.x_velocity += 15;
+  }
+  if(controller.down) {
+    player.x_velocity += 15;
+  }
+};
+
+  player.y_velocity += 1.5;// gravity
+  player.x += player.x_velocity;
+  player.y += player.y_velocity;
+  player.x_velocity *= 0.9;// friction
+  player.y_velocity *= 0.9;// friction
 
 
 window.addEventListener("keydown", controller.keyListener)
