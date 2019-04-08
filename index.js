@@ -88,7 +88,7 @@ loop = function() {
   player.x += player.x_velocity;
   player.y += player.y_velocity;
   player.x_velocity *= 0.9;
-  player_velocity *= 0.9;
+  player.y_velocity *= 0.9;
 
   window.requestAnimationFrame(loop);
 
