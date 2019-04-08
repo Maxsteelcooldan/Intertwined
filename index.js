@@ -28,9 +28,9 @@ context.canvas.height = 180;
 context.canvas.width = 320;
 
 player = {
-  height:32,
+  height:10,
   jumping:true,
-  width:32,
+  width:10,
   x:144, // center of the canvas
   x_velocity:0,
   y:0,
