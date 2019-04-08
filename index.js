@@ -70,8 +70,8 @@ controller = {
 loop = function() {
 
   if (controller.up && player.jumping == false) {
-    rectangle.y_velocity -= 20;
-    rectangle.jumping = true;
+    player.y_velocity -= 20;
+    player.jumping = true;
   }
   if (controller.left) {
     player.x_velocity -= 0.5;
