@@ -19,75 +19,84 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var player, controller, loop, context;
+var context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
+
 context.canvas.height = 180;
-context.canvas.width = 300;
+context.canvas.width = 320;
 
-player = document.querySelector("player");
+rectangle = {
 
-player {  
   height:32,
   jumping:true,
   width:32,
-  x:144,
+  x:144, // center of the canvas
   x_velocity:0,
   y:0,
   y_velocity:0
+
 };
 
-controller {
+controller = {
+
+  left:false,
+  right:false,
   up:false,
   down:false,
-  right:false,
-  left:false,
   keyListener:function(event) {
-  var move = (event.type == "keycode")?true:false;
+
+    var move = (event.type == "keydown")?true:false;
+
     switch(event.keyCode) {
-      case 87: //w key
-      controller.up = what;
+
+      case 37:// left key
+        controller.left = move;
       break;
-      case 68: //d key
-      controller.right = what;
+      case 38:// up key
+        controller.up = move;
       break;
-      case 65: //a key
-      controller.left = what;
+      case 39:// right key
+        controller.right = move;
       break;
-      case 83: //s key
-      controller.down = what;
+      case 39:// s key
+        controller.down = move;
       break;
+
     }
+
   }
+
 };
 
 loop = function() {
-  if (controller.up && player.jumping == false) {
-    player.y_velocity -= 15;
-    player.jumping = true;
+
+  if (controller.up && rectangle.jumping == false) {
+
+    rectangle.y_velocity -= 20;
+    rectangle.jumping = true;
+
   }
-  if(controller.left) {
-    player.x_velocity -= 15;
+
+  if (controller.left) {
+
+    rectangle.x_velocity -= 0.5;
+
   }
-  if(controller.right) {
-    player.x_velocity += 15;
+
+  if (controller.right) {
+
+    rectangle.x_velocity += 0.5;
+
   }
-  if(controller.down) {
-    player.x_velocity += 15;
-  }
-  player.y_velocity += 1.5;
-  player.x += player.x_velocity;
-  player.y += player.y_velocity;
-  player.x_velocity *= 0.9;
-  player.y_velocity *= 0.9;
   
-  context.rect(115,120,100,50,'green')
-
-  window.requestAnimationFrame(loop);
-};
-
-
-
-window.addEventListener("keydown", controller.keyListener)
-window.addEventListener("keyup", controller.keyListener);
-window.requestAnimationFrame(loop);
+  if (controller.down) {
+    
+    rectangle.x_velocity += 20;
+  
+  }
+  rectangle.y_velocity += 1.5;
+  rectangle.x += rectangle.x_velocity;
+  rectangle.y += rectangle.y_velocity;
+  rectangle.x_velocity *= 0.9;
+  rectangle.y_velocity *= 0.9;
