@@ -19,46 +19,44 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var context, controller, player, loop;
+var context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
-player = document.querySelector("player");
 
 context.canvas.height = 180;
 context.canvas.width = 320;
 
-player = {
-  height:10,
+rectangle = {
+
+  height:32,
   jumping:true,
-  width:10,
+  width:32,
   x:144, // center of the canvas
   x_velocity:0,
   y:0,
   y_velocity:0
+
 };
 
 controller = {
-  right:false,
+
   left:false,
+  right:false,
   up:false,
-  down:false,
   keyListener:function(event) {
 
-    var move = (event.type == "keydown")?true:false;
+    var key_state = (event.type == "keydown")?true:false;
 
     switch(event.keyCode) {
 
-      case 87:// w key
-        controller.up = move;
+      case 37:// left key
+        controller.left = key_state;
       break;
-      case 65:// a key
-        controller.left = move;
+      case 38:// up key
+        controller.up = key_state;
       break;
-      case 68:// d key
-        controller.right = move;
-      break;
-      case 83:// s key
-        controller.down = move;
+      case 39:// right key
+        controller.right = key_state;
       break;
 
     }
@@ -69,27 +67,65 @@ controller = {
 
 loop = function() {
 
-  if (controller.up && player.jumping == false) {
-    player.y_velocity -= 20;
-    player.jumping = true;
+  if (controller.up && rectangle.jumping == false) {
+
+    rectangle.y_velocity -= 20;
+    rectangle.jumping = true;
+
   }
+
   if (controller.left) {
-    player.x_velocity -= 0.5;
+
+    rectangle.x_velocity -= 0.5;
+
   }
 
   if (controller.right) {
-    player.x_velocity += 0.5;
-  }
-  
-  if (controller.down) {
-    player.x_velocity += 20;
-  }
-  player.y_velocity += 1.5;
-  player.x += player.x_velocity;
-  player.y += player.y_velocity;
-  player.x_velocity *= 0.9;
-  player.y_velocity *= 0.9;
 
+    rectangle.x_velocity += 0.5;
+
+  }
+
+  rectangle.y_velocity += 1.5;// gravity
+  rectangle.x += rectangle.x_velocity;
+  rectangle.y += rectangle.y_velocity;
+  rectangle.x_velocity *= 0.9;// friction
+  rectangle.y_velocity *= 0.9;// friction
+
+  // if rectangle is falling below floor line
+  if (rectangle.y > 180 - 16 - 32) {
+
+    rectangle.jumping = false;
+    rectangle.y = 180 - 16 - 32;
+    rectangle.y_velocity = 0;
+
+  }
+
+  // if rectangle is going off the left of the screen
+  if (rectangle.x < -32) {
+
+    rectangle.x = 320;
+
+  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
+
+    rectangle.x = -32;
+
+  }
+
+  context.fillStyle = "#202020";
+  context.fillRect(0, 0, 320, 180);// x, y, width, height
+  context.fillStyle = "#ff0000";// hex for red
+  context.beginPath();
+  context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+  context.fill();
+  context.strokeStyle = "#202830";
+  context.lineWidth = 4;
+  context.beginPath();
+  context.moveTo(0, 164);
+  context.lineTo(320, 164);
+  context.stroke();
+
+  // call update when the browser is ready to draw again
   window.requestAnimationFrame(loop);
 
 };
