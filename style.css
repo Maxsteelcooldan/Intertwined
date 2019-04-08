@@ -78,7 +78,8 @@ body {
 
 #player {
   position: absoulte; 
-  background: url(Block.png) no-repeat;
+  top: 100;
+  left: 200;
 }
 
 
