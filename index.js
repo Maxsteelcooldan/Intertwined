@@ -19,8 +19,8 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var context, controller, loop;
-var player = <img src="Block.png" style="width:100%">
+var context, controller, loop, player;
+
 
 context = document.querySelector("canvas").getContext("2d");
 
