@@ -96,7 +96,7 @@ loop = function() {
   if (rectangle.y > 132) {
 
     rectangle.jumping = false;
-    rectangle.y = 180 - 16 - 32;
+    rectangle.y = 132;
     rectangle.y_velocity = 0;
 
   }
