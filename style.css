@@ -73,7 +73,12 @@ body {
 }
 
 #canvasone {
-  background: white;
+  background: lightblue;
+}
+
+#player {
+  position: absoulte; 
+  background: url(Block.png) no-repeat;
 }
 
 
