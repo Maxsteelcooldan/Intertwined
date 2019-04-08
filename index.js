@@ -75,13 +75,17 @@ loop = function() {
   if(controller.down) {
     player.x_velocity += 15;
   }
-};
-
-  player.y_velocity += 1.5;// gravity
+  player.y_velocity += 1.5;
   player.x += player.x_velocity;
   player.y += player.y_velocity;
-  player.x_velocity *= 0.9;// friction
-  player.y_velocity *= 0.9;// friction
+  player.x_velocity *= 0.9;
+  player.y_velocity *= 0.9;
+  
+  context.rect(115,120,100,50,'green')
+
+  window.requestAnimationFrame(loop);
+};
+
 
 
 window.addEventListener("keydown", controller.keyListener)
