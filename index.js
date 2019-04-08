@@ -49,13 +49,13 @@ controller = {
 
     switch(event.keyCode) {
 
-      case 37:// left key
+      case 65:// left key
         controller.left = key_state;
       break;
-      case 38:// up key
+      case 87:// up key
         controller.up = key_state;
       break;
-      case 39:// right key
+      case 68:// right key
         controller.right = key_state;
       break;
 
@@ -93,7 +93,7 @@ loop = function() {
   rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (rectangle.y > 180 - 16 - 32) {
+  if (rectangle.y > 132) {
 
     rectangle.jumping = false;
     rectangle.y = 180 - 16 - 32;
