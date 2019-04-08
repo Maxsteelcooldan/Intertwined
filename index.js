@@ -100,3 +100,11 @@ loop = function() {
   rectangle.y += rectangle.y_velocity;
   rectangle.x_velocity *= 0.9;
   rectangle.y_velocity *= 0.9;
+
+  window.requestAnimationFrame(loop);
+
+};
+
+window.addEventListener("keydown", controller.keyListener)
+window.addEventListener("keyup", controller.keyListener);
+window.requestAnimationFrame(loop);
