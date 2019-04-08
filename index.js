@@ -43,9 +43,23 @@ controller {
   right:false,
   left:false,
   keyListener:function(event) {
-  var move = (event.type == "keycode")?true:false
+  var move = (event.type == "keycode")?true:false;
+    switch(event.keyCode) {
+      case 87: //w key
+      controller.up = what;
+      break;
+      case 68: //d key
+      controller.right = what;
+      break;
+      case 65: //a key
+      controller.left = what;
+      break;
+      case 83: //s key
+      controller.down = what;
+      break;
+    }
   }
-}
+};
 
 
 
