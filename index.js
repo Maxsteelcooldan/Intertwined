@@ -19,3 +19,6 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
+var player, controller, loop, context;
+
+
