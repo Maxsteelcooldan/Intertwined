@@ -28,9 +28,9 @@ context.canvas.width = 320;
 
 rectangle = {
 
-  height:32,
+  height:144,
   jumping:true,
-  width:32,
+  width:144,
   x:144, // center of the canvas
   x_velocity:0,
   y:0,
@@ -93,10 +93,10 @@ loop = function() {
   rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (rectangle.y > 180 - 16 - 32) {
+  if (rectangle.y > 180 - 16 - rectangle.height/2) {
 
     rectangle.jumping = false;
-    rectangle.y = 180 - 16 - 32;
+    rectangle.y = 180 - 16 - rectangle.height/2;
     rectangle.y_velocity = 0;
 
   }
@@ -111,11 +111,18 @@ loop = function() {
     rectangle.x = -32;
 
   }
+  image = new Image();
+  image.src="Block.png";
+  context.fillStyle = "#2196F3";
+  context.fillRect(0, 0, 320, 180);
+  context.beginPath();
+  context.fillStyle = "#4caf50";
+  context.rect(0,155,320,50,'grey')
+  context.drawImage(image,rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+  context.fill();
 
-  context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
 
-
-  // call update when the browser is ready to draw again
+// call update when the browser is ready to draw again
   window.requestAnimationFrame(loop);
 
 };
