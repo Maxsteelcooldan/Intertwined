@@ -106,9 +106,9 @@ loop = function() {
   }
 
   // To make rectangle not leave the left
-  if (rectangle.x < -34) {
+  if (rectangle.x < -40) {
 
-    rectangle.x = -34;
+    rectangle.x = -40;
 
   } 
   image = new Image();
