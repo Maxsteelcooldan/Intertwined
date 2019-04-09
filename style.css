@@ -1,51 +1,55 @@
 body {
-  color: white;
-  background: black;
-  font-family: 'Sniglet',cursive;
+    color: white;
+    background: black;
+    font-family: 'Sniglet', cursive;
 }
+
 #arrow {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  position: absolute;
-  left:875px;
-  top:300px;
-  padding: 25px;
-  cursor: pointer;
+    font-family: 'Sniglet', cursive;
+    border: none;
+    background: #2196F3;
+    outline: none;
+    position: absolute;
+    left: 875px;
+    top: 300px;
+    padding: 25px;
+    cursor: pointer;
 }
+
 .text {
- background-color: white;
-  width: 300px;
-  border: none;
-  padding: 10px;
-  margin: 25px;
-  font-family: 'Sniglet',cursive;
-  position: absolute;
-  left: 750px;
-  top: 50px;
-  color: black;
+    background-color: white;
+    width: 300px;
+    border: none;
+    padding: 10px;
+    margin: 25px;
+    font-family: 'Sniglet', cursive;
+    position: absolute;
+    left: 750px;
+    top: 50px;
+    color: black;
 }
 
 .introformc {
-  background-color: white;
-  width: 300px;
-  border: none;
-  padding: 20px;
-  margin: 25px;
-  font-family: 'Sniglet',cursive;
-  position: absolute;
-  left: 750px;
-  top: 500px;
-  color: black;
+    background-color: white;
+    width: 300px;
+    border: none;
+    padding: 20px;
+    margin: 25px;
+    font-family: 'Sniglet', cursive;
+    position: absolute;
+    left: 750px;
+    top: 500px;
+    color: black;
 }
+
 #play {
-  font-family: 'Sniglet',cursive;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  cursor: pointer;
- }
+    font-family: 'Sniglet', cursive;
+    border: none;
+    background: #2196F3;
+    outline: none;
+    cursor: pointer;
+}
+
 #start {
     display: inline-grid;
     grid-template-columns: auto auto auto auto auto;
@@ -53,36 +57,36 @@ body {
     text-align: center;
     width: 100%;
 }
+
 #start button {
-  font-family: 'Sniglet',cursive;
-  height:50px;
-  border:none;
-  background:#2196F3;
-  outline:none;
-  cursor: pointer;
+    font-family: 'Sniglet', cursive;
+    height: 50px;
+    border: none;
+    background: #2196F3;
+    outline: none;
+    cursor: pointer;
 }
+
 #backone {
-  font-family: 'Sniglet',cursive;
-  border:none
-  background: #2196F3;
-  position: absolute;
-  left:100px;
-  top:400px;
-  padding: 20px;
-  cursor:pointer;
+    font-family: 'Sniglet', cursive;
+    border: none;
+    background: #2196F3;
+    position: absolute;
+    left: 100px;
+    top: 400px;
+    padding: 20px;
+    cursor: pointer;
 }
 
 #canvasone {
-  background: lightblue;
+    background: lightblue;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #player {
-  position: absoulte; 
-  top: 100;
-  left: 200;
+    position: absoulte;
+    top: 100;
+    left: 200;
 }
-
-
-
-
-

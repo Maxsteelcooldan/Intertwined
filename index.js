@@ -19,10 +19,10 @@ $("#one").click(() => {
   $("#levels").show();
 });
 
-context = document.querySelector("canvas").getContext("2d");
+context = document.querySelector("#canvasone").getContext("2d");
 
-context.canvas.height = 180;
-context.canvas.width = 320;
+context.canvas.height = window.innerHeight;
+context.canvas.width = window.innerWidth;
 
 var rectangle = {
 
@@ -73,12 +73,11 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     that.player.y_velocity *= that.friction;// friction
 
     // if that.player is falling below floor line
-    if (that.player.y > that.floorHeight - that.player.height / 2) {
+    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 10) {
 
       that.player.jumping = false;
-      that.player.y = that.floorHeight - that.player.height / 2;
+      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 10;
       that.player.y_velocity = 0;
-
     }
 
     // if that.player is going off the left of the screen
@@ -97,7 +96,7 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.fillRect(0, 0, that.width, that.height); // aneesh, please label your code with comments.
     context.beginPath();
     context.fillStyle = "#4caf50";
-    context.rect(0, 155, 320, 50, 'grey')
+    context.rect(0, that.height - that.floorHeight, that.width, that.floorHeight, 'grey')
     context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
     context.fill();
 
@@ -134,6 +133,6 @@ function Controller() {
   }
 };
 
-var world = new World(new Controller(), 320, 180, 1.5, 0.9, 164, rectangle);
+var world = new World(new Controller(), window.innerWidth, window.innerHeight, 0.15, 0.9, 164, rectangle);
 
 world.start();
