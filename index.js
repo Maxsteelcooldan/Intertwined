@@ -19,15 +19,14 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var context, controller, loop;
-var world = new game('600', '600')
-var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
+var context, controller, rectangle, loop;
+
 context = document.querySelector("canvas").getContext("2d");
 
 context.canvas.height = 180;
 context.canvas.width = 320;
 
-player = {
+rectangle = {
 
   height:32,
   jumping:true,
@@ -50,13 +49,13 @@ controller = {
 
     switch(event.keyCode) {
 
-      case 65:// left key
+      case 37:// left key
         controller.left = key_state;
       break;
-      case 87:// up key
+      case 38:// up key
         controller.up = key_state;
       break;
-      case 68:// right key
+      case 39:// right key
         controller.right = key_state;
       break;
 
@@ -70,46 +69,46 @@ loop = function() {
 
   if (controller.up && rectangle.jumping == false) {
 
-    player.y_velocity -= 20;
-    player.jumping = true;
+    rectangle.y_velocity -= 20;
+    rectangle.jumping = true;
 
   }
 
   if (controller.left) {
 
-    player.x_velocity -= 0.5;
+    rectangle.x_velocity -= 0.5;
 
   }
 
   if (controller.right) {
 
-    player.x_velocity += 0.5;
+    rectangle.x_velocity += 0.5;
 
   }
 
-  player.y_velocity += 1.5;// gravity
-  player.x += player.x_velocity;
-  player.y += player.y_velocity;
-  player.x_velocity *= 0.9;// friction
-  player.y_velocity *= 0.9;// friction
+  rectangle.y_velocity += 1.5;// gravity
+  rectangle.x += rectangle.x_velocity;
+  rectangle.y += rectangle.y_velocity;
+  rectangle.x_velocity *= 0.9;// friction
+  rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (player.y > 180 - 16 - 32) {
+  if (rectangle.y > 180 - 16 - 32) {
 
-    player.jumping = false;
-    player.y = 180 - 16 - 32;
-    player.y_velocity = 0;
+    rectangle.jumping = false;
+    rectangle.y = 180 - 16 - 32;
+    rectangle.y_velocity = 0;
 
   }
 
   // if rectangle is going off the left of the screen
-  if (player.x < -32) {
+  if (rectangle.x < -32) {
 
-    player.x = 320;
+    rectangle.x = 320;
 
-  } else if (player.x > 320) {// if rectangle goes past right boundary
+  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
 
-    player.x = -32;
+    rectangle.x = -32;
 
   }
 
