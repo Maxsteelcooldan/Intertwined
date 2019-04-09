@@ -1,136 +1,207 @@
-$("#play").click(()=>{
+$("#play").click(() => {
   $("#home").hide();
   $("#game").show();
 });
 
-$("#arrow").click(()=>{
+$("#arrow").click(() => {
   $("#game").hide();
   $("#start").show();
 });
 
-$("#backone").click(()=>{
+$("#backone").click(() => {
   $("#levels").hide();
   $("#start").show();
 });
 $('#box').text('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
 
-$("#one").click(()=>{
+$("#one").click(() => {
   $("#start").hide();
   $("#levels").show();
 });
-
-var context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
 
 context.canvas.height = 180;
 context.canvas.width = 320;
 
-rectangle = {
+var rectangle = {
 
-  height:144,
-  jumping:true,
-  width:144,
-  x:144, // center of the canvas
-  x_velocity:0,
-  y:0,
-  y_velocity:0
+  height: 144,
+  jumping: true,
+  width: 144,
+  x: 144, // center of the canvas
+  x_velocity: 0,
+  y: 0,
+  y_velocity: 0
 
 };
 
-controller = {
+function World(controller, width, height, gravity, friction, floor_height, player) {
+  var that = this;
+  this.width = width;
+  this.height = height;
+  this.gravity = gravity;
+  this.friction = friction;
+  this.floorHeight = floor_height;
+  this.controller = controller;
+  this.player = player;
+  this.animationLoop = function () {
 
-  left:false,
-  right:false,
-  up:false,
-  down:false,
-  keyListener:function(event) {
+    if (that.controller.up && that.player.jumping == false) {
 
-    var move = (event.type == "keydown")?true:false;
-
-    switch(event.keyCode) {
-
-      case 87:// w key
-        controller.up = move;
-      break;
-      case 65:// a key
-        controller.left = move;
-      break;
-      case 68:// d key
-        controller.right = move;
-      break;
-      case 83: // s key
-        controller.down = move;
-      break;
+      rectangle.y_velocity -= 20;
+      rectangle.jumping = true;
 
     }
 
-  }
+    if (that.controller.left) {
 
+      that.player.x_velocity -= 0.5;
+
+    }
+
+    if (that.controller.right) {
+
+      that.player.x_velocity += 0.5;
+
+    }
+
+    that.player.y_velocity += that.gravity;// gravity
+    that.player.x += that.player.x_velocity;
+    that.player.y += that.player.y_velocity;
+    that.player.x_velocity *= that.friction;// friction
+    that.player.y_velocity *= that.friction;// friction
+
+    // if that.player is falling below floor line
+    if (that.player.y > that.floorHeight - that.player.height / 2) {
+
+      that.player.jumping = false;
+      that.player.y = that.floorHeight - that.player.height / 2;
+      that.player.y_velocity = 0;
+
+    }
+
+    // if that.player is going off the left of the screen
+    if (that.player.x < -32) {
+
+      that.player.x = that.width + 32;
+
+    } else if (that.player.x > width + 32) {// if that.player goes past right boundary
+
+      that.player.x = -32;
+
+    }
+    image = new Image();
+    image.src = "Block.png";
+    context.fillStyle = "#2196F3";
+    context.fillRect(0, 0, that.width, that.height); // aneesh, please label your code with comments.
+    context.beginPath();
+    context.fillStyle = "#4caf50";
+    context.rect(0, 155, 320, 50, 'grey')
+    context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
+    context.fill();
+
+
+    // call update when the browser is ready to draw again
+    window.requestAnimationFrame(that.animationLoop);
+
+  };
+
+  this.start = function () {
+    document.onkeypress = that.controller.keyListener;
+    document.onkeyup = that.controller.keyListener;
+    window.requestAnimationFrame(that.animationLoop);
+  };
+}
+
+function Controller() {
+  var that = this;
+  this.left = false;
+  this.right = false;
+  this.up = false;
+  this.down = false;
+  this.keyListener = function (event) {
+    var hit = (event.type === 'keypress') ? true : false;
+    var key = event.key.toLowerCase();
+    if (key === 'w')
+      that.up = hit;
+    else if (key === 'a')
+      that.left = hit;
+    else if (key === 's')
+      that.down = hit;
+    else if (key === 'd')
+      that.right = hit;
+  }
 };
 
-loop = function() {
+/*loop = function () {
 
-  if (controller.up && rectangle.jumping == false) {
+  if (controller.up && that.player.jumping == false) {
 
-    rectangle.y_velocity -= 20;
-    rectangle.jumping = true;
+    that.player.y_velocity -= 20;
+    that.player.jumping = true;
 
   }
 
   if (controller.left) {
 
-    rectangle.x_velocity -= 0.5;
+    that.player.x_velocity -= 0.5;
 
   }
 
   if (controller.right) {
 
-    rectangle.x_velocity += 0.5;
+    that.player.x_velocity += 0.5;
 
   }
 
-  rectangle.y_velocity += 1.5;// gravity
-  rectangle.x += rectangle.x_velocity;
-  rectangle.y += rectangle.y_velocity;
+  that.player.y_velocity += 1.5;// gravity
+  that.player.x += that.player.x_velocity;
+  that.player.y += that.player.y_velocity;
   rectangle.x_velocity *= 0.9;// friction
   rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (rectangle.y > 180 - 16 - rectangle.height/2) {
+  if (rectangle.y > 180 - 16 - rectangle.height / 2) {
 
     rectangle.jumping = false;
-    rectangle.y = 180 - 16 - rectangle.height/2;
+    rectangle.y = 180 - 16 - rectangle.height / 2;
     rectangle.y_velocity = 0;
 
   }
 
-  // if rectangle is going off the left of the screen
-  if (rectangle.x < -32) {
+  // To make rectangle not leave the left
+  if (rectangle.x < -40) {
 
-    rectangle.x = -32;
+    rectangle.x = -40;
 
-  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
-
-    rectangle.x = -32;
-
-  }
+  } 
   image = new Image();
-  image.src="Block.png";
+  image.src = "Block.png";
   context.fillStyle = "#2196F3";
   context.fillRect(0, 0, 320, 180);
   context.beginPath();
   context.fillStyle = "#4caf50";
-  context.rect(0,155,320,50,'grey')
+<<<<<<< HEAD
+  context.rect(0, 155, 320, 50, 'grey')
+  context.drawImage(image, rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+=======
+  context.rect(30,300,320,50,'grey')
   context.drawImage(image,rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+  context.rect(750,100,50,10,'grey')
+>>>>>>> 2bb7275c6776fa7f42b63dbda2da71bab67f6873
   context.fill();
 
 
-// call update when the browser is ready to draw again
+  // call update when the browser is ready to draw again
   window.requestAnimationFrame(loop);
 
 };
 
 window.addEventListener("keydown", controller.keyListener)
 window.addEventListener("keyup", controller.keyListener);
-window.requestAnimationFrame(loop);
+window.requestAnimationFrame(loop);*/
+
+var world = new World(new Controller(), 320, 180, 1.5, 0.9, 164, rectangle);
+
+world.start();
