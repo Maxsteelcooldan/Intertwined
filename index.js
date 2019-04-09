@@ -105,16 +105,12 @@ loop = function() {
 
   }
 
-  // if rectangle is going off the left of the screen
-  if (rectangle.x < -32) {
+  // To make rectangle not leave the left
+  if (rectangle.x < -34) {
 
-    rectangle.x = -32;
+    rectangle.x = -34;
 
-  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
-
-    rectangle.x = -32;
-
-  }
+  } 
   image = new Image();
   image.src="Block.png";
   context.fillStyle = "#2196F3";
