@@ -114,11 +114,11 @@ loop = function() {
 
   }
 
-  context.fillStyle = "#202020";
   context.fillRect(0, 0, 320, 180);// x, y, width, height
   context.fillStyle = "#ff0000";// hex for red
   context.beginPath();
-  context.fill();
+  context.fill(0, 0, 0);
+  context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
   context.strokeStyle = "#202830";
   context.lineWidth = 4;
   context.beginPath();
