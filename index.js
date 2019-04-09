@@ -49,13 +49,13 @@ controller = {
 
     switch(event.keyCode) {
 
-      case 65:// left key
+      case 37:// left key
         controller.left = key_state;
       break;
-      case 87:// up key
+      case 38:// up key
         controller.up = key_state;
       break;
-      case 68:// right key
+      case 39:// right key
         controller.right = key_state;
       break;
 
@@ -112,7 +112,10 @@ loop = function() {
 
   }
 
- 
+  context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+
+
+  // call update when the browser is ready to draw again
   window.requestAnimationFrame(loop);
 
 };
