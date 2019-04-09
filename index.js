@@ -103,7 +103,7 @@ loop = function() {
 
   }
 
- =
+ 
   if (rectangle.x < -32) {
 
     rectangle.x = 320;
