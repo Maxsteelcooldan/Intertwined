@@ -108,7 +108,7 @@ loop = function() {
   // if rectangle is going off the left of the screen
   if (rectangle.x < -32) {
 
-    rectangle.x = 320;
+    rectangle.x = -32;
 
   } else if (rectangle.x > 320) {// if rectangle goes past right boundary
 
