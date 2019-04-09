@@ -119,7 +119,7 @@ loop = function() {
   context.fillStyle = "#4caf50";
   context.rect(0,155,320,50,'grey')
   context.drawImage(image,rectangle.x, rectangle.y, rectangle.width, rectangle.height);
-  context.rect(50,100,100,100,'grey')
+  context.rect(750,100,50,10,'grey')
   context.fill();
 
 
