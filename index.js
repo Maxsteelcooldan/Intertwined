@@ -23,7 +23,6 @@ var context, controller, loop, player;
 
 
 context = document.querySelector("canvas").getContext("2d");
-player = document.querySelector("#player")
 
 context.canvas.height = 180;
 context.canvas.width = 320;
