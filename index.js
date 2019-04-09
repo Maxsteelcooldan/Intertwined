@@ -19,8 +19,9 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var context, controller, rectangle, loop;
-
+var context, controller, loop;
+var world = new world('600', '600')
+var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 context = document.querySelector("canvas").getContext("2d");
 
 context.canvas.height = 180;
