@@ -19,15 +19,14 @@ $("#one").click(()=>{
   $("#levels").show();
 });
 
-var context, controller, loop, player;
-
+var context, controller, rectangle, loop;
 
 context = document.querySelector("canvas").getContext("2d");
 
 context.canvas.height = 180;
 context.canvas.width = 320;
 
-player  = {
+rectangle = {
 
   height:32,
   jumping:true,
@@ -50,13 +49,13 @@ controller = {
 
     switch(event.keyCode) {
 
-      case 65:// left key
+      case 37:// left key
         controller.left = key_state;
       break;
-      case 87:// up key
+      case 38:// up key
         controller.up = key_state;
       break;
-      case 68:// right key
+      case 39:// right key
         controller.right = key_state;
       break;
 
@@ -68,7 +67,7 @@ controller = {
 
 loop = function() {
 
-  if (controller.up && player.jumping == false) {
+  if (controller.up && rectangle.jumping == false) {
 
     rectangle.y_velocity -= 20;
     rectangle.jumping = true;
@@ -94,30 +93,31 @@ loop = function() {
   rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (rectangle.y > 132) {
+  if (rectangle.y > 180 - 16 - 32) {
 
     rectangle.jumping = false;
-    rectangle.y = 132;
+    rectangle.y = 180 - 16 - 32;
     rectangle.y_velocity = 0;
 
   }
 
- 
+  // if rectangle is going off the left of the screen
   if (rectangle.x < -32) {
 
     rectangle.x = 320;
 
-  } else if (rectangle.x > 320) {
+  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
 
     rectangle.x = -32;
 
   }
 
+  context.fillStyle = "#202020";
   context.fillRect(0, 0, 320, 180);// x, y, width, height
   context.fillStyle = "#ff0000";// hex for red
   context.beginPath();
-  context.fill(0, 0, 0);
   context.rect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+  context.fill();
   context.strokeStyle = "#202830";
   context.lineWidth = 4;
   context.beginPath();
