@@ -43,20 +43,24 @@ controller = {
   left:false,
   right:false,
   up:false,
+  down:false,
   keyListener:function(event) {
 
-    var key_state = (event.type == "keydown")?true:false;
+    var move = (event.type == "keydown")?true:false;
 
     switch(event.keyCode) {
 
-      case 37:// left key
-        controller.left = key_state;
+      case 87:// w key
+        controller.up = move;
       break;
-      case 38:// up key
-        controller.up = key_state;
+      case 65:// a key
+        controller.left = move;
       break;
-      case 39:// right key
-        controller.right = key_state;
+      case 68:// d key
+        controller.right = move;
+      break;
+      case 83: // s key
+        controller.down = move;
       break;
 
     }
