@@ -20,14 +20,14 @@ $("#one").click(()=>{
 });
 
 var context, controller, loop;
-var world = new world('600', '600')
+var world = new game('600', '600')
 var player=new game.critter(0,500,50,50,0,'<img src="Block.png" style="width:100%">','player');
 context = document.querySelector("canvas").getContext("2d");
 
 context.canvas.height = 180;
 context.canvas.width = 320;
 
-rectangle = {
+player = {
 
   height:32,
   jumping:true,
@@ -70,46 +70,46 @@ loop = function() {
 
   if (controller.up && rectangle.jumping == false) {
 
-    rectangle.y_velocity -= 20;
-    rectangle.jumping = true;
+    player.y_velocity -= 20;
+    player.jumping = true;
 
   }
 
   if (controller.left) {
 
-    rectangle.x_velocity -= 0.5;
+    player.x_velocity -= 0.5;
 
   }
 
   if (controller.right) {
 
-    rectangle.x_velocity += 0.5;
+    player.x_velocity += 0.5;
 
   }
 
-  rectangle.y_velocity += 1.5;// gravity
-  rectangle.x += rectangle.x_velocity;
-  rectangle.y += rectangle.y_velocity;
-  rectangle.x_velocity *= 0.9;// friction
-  rectangle.y_velocity *= 0.9;// friction
+  player.y_velocity += 1.5;// gravity
+  player.x += player.x_velocity;
+  player.y += player.y_velocity;
+  player.x_velocity *= 0.9;// friction
+  player.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
-  if (rectangle.y > 180 - 16 - 32) {
+  if (player.y > 180 - 16 - 32) {
 
-    rectangle.jumping = false;
-    rectangle.y = 180 - 16 - 32;
-    rectangle.y_velocity = 0;
+    player.jumping = false;
+    player.y = 180 - 16 - 32;
+    player.y_velocity = 0;
 
   }
 
   // if rectangle is going off the left of the screen
-  if (rectangle.x < -32) {
+  if (player.x < -32) {
 
-    rectangle.x = 320;
+    player.x = 320;
 
-  } else if (rectangle.x > 320) {// if rectangle goes past right boundary
+  } else if (player.x > 320) {// if rectangle goes past right boundary
 
-    rectangle.x = -32;
+    player.x = -32;
 
   }
 
