@@ -71,28 +71,28 @@ loop = function() {
 
   if (controller.up && player.jumping == false) {
 
-    player.y_velocity -= 20;
-    player.jumping = true;
+    rectangle.y_velocity -= 20;
+    rectangle.jumping = true;
 
   }
 
   if (controller.left) {
 
-    player.x_velocity -= 0.5;
+    rectangle.x_velocity -= 0.5;
 
   }
 
   if (controller.right) {
 
-    player.x_velocity += 0.5;
+    rectangle.x_velocity += 0.5;
 
   }
 
-  player.y_velocity += 1.5;// gravity
-  player.x += player.x_velocity;
-  player.y += player.y_velocity;
-  player.x_velocity *= 0.9;// friction
-  player.y_velocity *= 0.9;// friction
+  rectangle.y_velocity += 1.5;// gravity
+  rectangle.x += rectangle.x_velocity;
+  rectangle.y += rectangle.y_velocity;
+  rectangle.x_velocity *= 0.9;// friction
+  rectangle.y_velocity *= 0.9;// friction
 
   // if rectangle is falling below floor line
   if (rectangle.y > 132) {
@@ -103,14 +103,14 @@ loop = function() {
 
   }
 
-  // if rectangle is going off the left of the screen
-  if (player.x < -32) {
+ =
+  if (rectangle.x < -32) {
 
-    player.x = 320;
+    rectangle.x = 320;
 
-  } else if (player.x > 320) {// if rectangle goes past right boundary
+  } else if (rectangle.x > 320) {
 
-    player.x = -32;
+    rectangle.x = -32;
 
   }
 
