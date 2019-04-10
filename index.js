@@ -24,17 +24,18 @@ context = document.querySelector("#canvasone").getContext("2d");
 context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
-var rectangle = {
+var rectangle = new Player(144, 144, 144, 0);
 
-  height: 144,
-  jumping: true,
-  width: 144,
-  x: 144, // center of the canvas
-  x_velocity: 0,
-  y: 0,
-  y_velocity: 0
-
-};
+function Player(width, height, x, y) {
+  var that = this;
+  this.width = width;
+  this.height = height;
+  this.x = x;
+  this.y = y;
+  this.jumping = false;
+  this.x_velocity = 0;
+  this.y_velocity = 0;
+}
 
 function World(controller, width, height, gravity, friction, floor_height, player) {
   var that = this;
@@ -49,8 +50,8 @@ function World(controller, width, height, gravity, friction, floor_height, playe
 
     if (that.controller.up && that.player.jumping == false) {
 
-      rectangle.y_velocity -= 20;
-      rectangle.jumping = true;
+      that.player.y_velocity -= 80;
+      that.player.jumping = true;
 
     }
 
@@ -66,11 +67,11 @@ function World(controller, width, height, gravity, friction, floor_height, playe
 
     }
 
-    that.player.y_velocity += that.gravity;// gravity
-    that.player.x += that.player.x_velocity;
-    that.player.y += that.player.y_velocity;
+    that.player.y_velocity = that.player.y_velocity + that.gravity;
     that.player.x_velocity *= that.friction;// friction
     that.player.y_velocity *= that.friction;// friction
+    that.player.x += that.player.x_velocity;
+    that.player.y += that.player.y_velocity;
 
     // if that.player is falling below floor line
     if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 10) {
@@ -78,6 +79,7 @@ function World(controller, width, height, gravity, friction, floor_height, playe
       that.player.jumping = false;
       that.player.y = that.height - that.floorHeight - that.player.height / 2 + 10;
       that.player.y_velocity = 0;
+      
     }
 
     // if that.player is going off the left of the screen
@@ -99,7 +101,6 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.rect(0, that.height - that.floorHeight, that.width, that.floorHeight, 'grey')
     context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
     context.fill();
-
 
     // call update when the browser is ready to draw again
     window.requestAnimationFrame(that.animationLoop);
@@ -133,6 +134,6 @@ function Controller() {
   }
 };
 
-var world = new World(new Controller(), window.innerWidth, window.innerHeight, 0.15, 0.9, 164, rectangle);
+var world = new World(new Controller(), window.innerWidth, window.innerHeight, 1.8, 0.9, 164, rectangle);
 
 world.start();
