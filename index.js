@@ -111,6 +111,10 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     document.onkeypress = that.controller.keyListener;
     document.onkeyup = that.controller.keyListener;
     window.requestAnimationFrame(that.animationLoop);
+    document.onclick = function (e) {
+      that.player.x = e.clientX - 30;
+      that.player.y = e.clientY - 30;
+    }
   };
 }
 
