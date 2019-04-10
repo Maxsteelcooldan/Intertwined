@@ -28,7 +28,7 @@ var rectangle = new Player(144, 144, 144, 0);
 
 function Player(width, height, x, y) {
   var that = this;
-  this.width = width;
+  this.width = 18;
   this.height = height;
   this.x = x;
   this.y = y;
