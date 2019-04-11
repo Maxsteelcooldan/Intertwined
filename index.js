@@ -69,8 +69,8 @@ function World(controller, width, height, gravity, friction, floor_height, playe
       that.player.y_velocity = 0;
     }
     // TO MAKE SURE THE CHARACTER WONT LEAVE
-    if (that.player.x < -32) {
-      that.player.x = -32;
+    if (that.player.x < -40) {
+      that.player.x = -40;
     } else if (that.player.x > width + 32) {// if that.player goes past right boundary
       that.player.x = -32;
     }
