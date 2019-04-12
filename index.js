@@ -24,7 +24,7 @@ context = document.querySelector("#canvasone").getContext("2d");
 context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
-var rectangle = new Player(144, 144, 18, 0); // making the player.
+var rectangle = new Player(300, 30, 18, 0); // making the player.
 
 function Player(width, height, x, y) { // function for making a Player.
   var that = this;
@@ -63,9 +63,9 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     that.player.x += that.player.x_velocity;
     that.player.y += that.player.y_velocity;
     // if that.player is falling below floor line
-    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 10) {
+    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 13) {
       that.player.jumping = false;
-      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 10;
+      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 13;
       that.player.y_velocity = 0;
     }
     // TO MAKE SURE THE CHARACTER WONT LEAVE
