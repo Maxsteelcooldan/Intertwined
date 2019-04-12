@@ -24,7 +24,7 @@ context = document.querySelector("#canvasone").getContext("2d");
 context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
-var rectangle = new Player(300, 30, 18, 0); // making the player.
+var rectangle = new Player(300, 300, 18, 0); // making the player.
 
 function Player(width, height, x, y) { // function for making a Player.
   var that = this;
