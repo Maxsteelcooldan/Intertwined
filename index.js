@@ -63,9 +63,9 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     that.player.x += that.player.x_velocity;
     that.player.y += that.player.y_velocity;
     // if that.player is falling below floor line
-    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 13) {
+    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 16) {
       that.player.jumping = false;
-      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 13;
+      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 16;
       that.player.y_velocity = 0;
     }
     // TO MAKE SURE THE CHARACTER WONT LEAVE
