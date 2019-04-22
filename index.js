@@ -44,7 +44,7 @@ function rect(x, y, w, h,color) {
  context.fill();
  context.closepath();
 }
-var ob = rect(300, 700, 30, 30);
+var ob = rect(300, 700, 30, 30, #cecece);
 
 function World(controller, width, height, gravity, friction, floor_height, player) {
   var that = this;
