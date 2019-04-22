@@ -42,7 +42,7 @@ function rect(x, y, w, h,color) {
  context.rect(x,y,w,h);
  context.fillStyle = color;
  context.fill();
- context.closepath();
+ context.closePath();
 }
 var ob = rect(300, 700, 30, 30, "#cecece");
 
