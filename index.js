@@ -25,7 +25,7 @@ context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
 var rectangle = new Player(300, 300, 18, 0); // making the player.
-var ob = new Object(300, 700, 30, 30);
+var ob = rect(300, 700, 30, 30);
 
 function Player(width, height, x, y) { // function for making a Player.
   var that = this;
@@ -37,13 +37,14 @@ function Player(width, height, x, y) { // function for making a Player.
   this.x_velocity = 0;
   this.y_velocity = 0;
 }
-function Object(width, height, x, y) {
-  var object1 = onec;
-  onec.width = width;
-  onec.height = height;
-  onec.x = x;
-  onec,y = y;
+function rect(x, y, w, h,color) {
+ context.beginPath();
+ context.rect(x,y,w,h);
+ context.fillStyle = color;
+ context.fill();
+ context.closepath();
 }
+var ob = rect(300, 700, 30, 30);
 
 function World(controller, width, height, gravity, friction, floor_height, player) {
   var that = this;
@@ -90,10 +91,6 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.fillStyle = "#4caf50";
     context.rect(0, that.height - that.floorHeight, that.width, that.floorHeight, 'grey');
     context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
-    context.fill();
-    context.beginPath();
-    context.fillstyle = '#c1c5cc';
-    context.rect(ob.x, ob.y, ob.width, ob.height);
     context.fill();
     GODSPLAN = function() {
 if (player.x < ob.x + player.width && player.x + player.width > ob.x && player.y < ob.y + ob.height && player.y + player.height > ob.y) { 
