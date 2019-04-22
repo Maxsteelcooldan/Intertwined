@@ -83,9 +83,11 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.rect(0, that.height - that.floorHeight, that.width, that.floorHeight, 'grey');
     context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
     context.fill();
-    context.beginPath()
-    context.fillstyle = '#7f7f7f'
-    context.rect(10, 10, 30, 30)
+    context.beginPath();
+    context.fillstyle = '#7f7f7f';
+    context.rect(10, 10, 30, 30);
+    context.fill();
+
     window.requestAnimationFrame(that.animationLoop); // when it is able to loop again
   };
 
