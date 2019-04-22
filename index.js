@@ -87,6 +87,12 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.fillstyle = '#c1c5cc';
     var ob = context.rect(100, 200, 30, 30);
     context.fill();
+    GODSPLAN = function() {
+if (player.x < ob.x + player.width && player.x + player.width > ob.x && player.y < ob.y + ob.height && player.y + player.height > ob.y) { 
+return false;
+}
+return true; 
+    };
 
     window.requestAnimationFrame(that.animationLoop); // when it is able to loop again
   };
