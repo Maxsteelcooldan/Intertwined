@@ -1,90 +1,121 @@
-var player, controller, context, loop;
- 
-context = document.querySelector('#canvasone').getContext('2d')
-context.canvas.width = 200;
-context.canvas.height = 300;
+$("#play").click(() => {
+  $("#home").hide();
+  $("#game").show();
+});
 
-player = {
-  x: 100,
-  y: 100,
-  x_velocity: 0,
-  y_velocity: 0,
-  jumping:false,
-  height:10,
-  width: 10
+$("#arrow").click(() => {
+  $("#game").hide();
+  $("#start").show();
+});
+
+$("#backone").click(() => {
+  $("#levels").hide();
+  $("#start").show();
+});
+$('#box').text('In a world where mankind has been turned into non-living objects.The only person who can save the world is the Block');
+
+$("#one").click(() => {
+  $("#start").hide();
+  $("#levels").show();
+});
+
+context = document.querySelector("#canvasone").getContext("2d");
+
+context.canvas.height = window.innerHeight;
+context.canvas.width = window.innerWidth;
+
+var rectangle = new Player(300, 300, 18, 0); // making the player.
+
+function Player(width, height, x, y) { // function for making a Player.
+  var that = this;
+  this.width = width;
+  this.height = height;
+  this.x = x;
+  this.y = y;
+  this.jumping = false;
+  this.x_velocity = 0;
+  this.y_velocity = 0;
+}
+
+function World(controller, width, height, gravity, friction, floor_height, player) {
+  var that = this;
+  this.width = width;
+  this.height = height;
+  this.gravity = gravity;
+  this.friction = friction;
+  this.floorHeight = floor_height;
+  this.controller = controller;
+  this.player = player;
+  this.animationLoop = function () {
+    if (that.controller.up && that.player.jumping == false) {
+      that.player.y_velocity -= 80;
+      that.player.jumping = true;
+    }
+    if (that.controller.left) {
+      that.player.x_velocity -= 0.5;
+    }
+    if (that.controller.right) {
+      that.player.x_velocity += 0.5;
+    }
+    that.player.y_velocity = that.player.y_velocity + that.gravity;
+    that.player.x_velocity *= that.friction;// friction
+    that.player.y_velocity *= that.friction;// friction
+    that.player.x += that.player.x_velocity;
+    that.player.y += that.player.y_velocity;
+    // if that.player is falling below floor line
+    if (that.player.y > that.height - that.floorHeight - that.player.height / 2 + 16) {
+      that.player.jumping = false;
+      that.player.y = that.height - that.floorHeight - that.player.height / 2 + 16;
+      that.player.y_velocity = 0;
+    }
+    // TO MAKE SURE THE CHARACTER WONT LEAVE
+    if (that.player.x < -40) {
+      that.player.x = -40;
+    } else if (that.player.x > width + 32) {// if that.player goes past right boundary
+      that.player.x = -32;
+    }
+    image = new Image();
+    image.src = "Block.png";
+    context.fillStyle = "#2196F3";
+    context.fillRect(0, 0, that.width, that.height);//clear rect with blue
+    context.beginPath(); //start drawing
+    context.fillStyle = "#4caf50";
+    context.rect(0, that.height - that.floorHeight, that.width, that.floorHeight, 'grey');
+    context.drawImage(image, that.player.x, that.player.y, that.player.width, that.player.height);
+    context.fill();
+    context.beginPath()
+    context.fillstyle = '#7f7f7f'
+    context.rect(10, 10, 30, 30)
+    window.requestAnimationFrame(that.animationLoop); // when it is able to loop again
   };
-controller = {
-  down:false,
-  up:false,
-  left:false,
-  right:false,
-  space:false,
-  keyListener:function(event) {
-    
-    var yeet=(event.type == "keydown")?true:false;
-    
-    switch(event.keycode) {
-      
-      case 87:
-        controller.up = yeet;
-      break;
-      case 83:
-        controller.down = yeet;
-      break;
-      case 65:
-        controller.left = yeet;
-      break;
-      case 68:
-        controller.down = yeet;
-      break;
-      case 32:
-        controller.space = yeet;
-      break;
-     }
- }
-};
-        loop = function() {
-          if(controller.left){
-            player.x_velocity -= 9;
-          }
-          if(controller.up && player.jumping) {
-            player.y_velocity -= 9;
-            player.jumping=true;
-          }
-          if(controller.down) {
-            player.y_velocity += 9;
-          }
-          if(controller.right) {
-            player.x_velocity += 9;
-          }
-          
-      player.y_velocity = 1.5;
-      player.y += player.y_velocity;  
-      player.x += player.x_velocity;
-      player.x_velocity *= 0.9;
-      player.y_velocity *= 0.9;
-    
-          
-  context.fillStyle = "#b0e0e6"; // this is the sky or something don't know
-  context.fillRect(0, 0, 200, 300);
-  context.fillStyle = "#ff0000";
-  context.beginPath();
-  context.rect(player.x, player.y, player.width, player.height);
-  context.fill();
-  context.fillstyle = "#afafaf";
-  context.beginpath();
-  var ob = context.rect(100,100,100,100);
-  context.fill();
-  if (player.x < ob.x + player.width && player.x + player.width > ob.x && player.y < ob.y + ob.height && player.y + player.height > ob.y) { 
-   return false;
+
+  this.start = function () {
+    document.onkeypress = that.controller.keyListener;
+    document.onkeyup = that.controller.keyListener;
+    window.requestAnimationFrame(that.animationLoop);
+  };
+}
+
+function Controller() {
+  var that = this;
+  this.left = false;
+  this.right = false;
+  this.up = false;
+  this.down = false;
+  this.keyListener = function (event) {
+    var hit = (event.type === 'keypress') ? true : false;
+    var key = event.key.toLowerCase();
+    if (key === 'w')
+      that.up = hit;
+    else if (key === 'a')
+      that.left = hit;
+    else if (key === 's')
+      that.down = hit;
+    else if (key === 'd')
+      that.right = hit;
   }
-   return true; 
+};
 
-      
-      window.requestAnimationFrame(loop);
+var world = new World(new Controller(), window.innerWidth, window.innerHeight, 1.8, 0.9, 164, rectangle);
 
-    };
-
-window.addEventListener("keydown", controller.keyListener);
-window.addEventListener("keyup", controller.keyListener);
-window.requestAnimationFrame(loop);
+world.start();
