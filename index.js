@@ -25,6 +25,7 @@ context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
 var rectangle = new Player(300, 300, 18, 0); // making the player.
+var ob = rect(300, 700, 30, 30);
 
 function Player(width, height, x, y) { // function for making a Player.
   var that = this;
@@ -85,7 +86,7 @@ function World(controller, width, height, gravity, friction, floor_height, playe
     context.fill();
     context.beginPath();
     context.fillstyle = '#c1c5cc';
-    var ob = context.rect(300, 700, 30, 30);
+    var ob = context.rect(ob.x, ob.y, ob.width, ob.height);
     context.fill();
     GODSPLAN = function() {
 if (player.x < ob.x + player.width && player.x + player.width > ob.x && player.y < ob.y + ob.height && player.y + player.height > ob.y) { 
