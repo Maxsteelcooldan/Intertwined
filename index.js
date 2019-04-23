@@ -25,6 +25,7 @@ context.canvas.height = window.innerHeight;
 context.canvas.width = window.innerWidth;
 
 var rectangle = new Player(300, 300, 18, 0); // making the player.
+var ob = rect(300, 700, 30, 30, "#cecece");
 
 function Player(width, height, x, y) { // function for making a Player.
   var that = this;
@@ -43,7 +44,7 @@ function rect(x, y, w, h,color) {
  context.fill();
  context.closePath();
 }
-var ob = rect(300, 700, 30, 30, "#cecece");
+
 
 function World(controller, width, height, gravity, friction, floor_height, player) {
   var that = this;
