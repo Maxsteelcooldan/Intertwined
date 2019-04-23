@@ -38,11 +38,8 @@ function Player(width, height, x, y) { // function for making a Player.
   this.y_velocity = 0;
 }
 function rect(x, y, w, h,color) {
- context.beginPath();
- context.rect(x,y,w,h);
- context.fillStyle = color;
- context.fill();
- context.closePath();
+context.fillStyle = color; 
+context.fillRect(x,y,w,h);
 }
 
 
