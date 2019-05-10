@@ -27,6 +27,6 @@ function update() {
   } else if (hero.cursors.left.isDown) {
     hero.main.x -= 5
   } else if (hero.cursors.up.isDown) {
-    hero.main.y += 5
+    hero.main.y -= 5
   }
 }
