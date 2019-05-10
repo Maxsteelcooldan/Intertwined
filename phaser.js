@@ -15,7 +15,7 @@ const config = {
 const game = new Phaser.Game(config)
 
 function preload() {
-  this.load.image('block', 'assets/block.png' )
+  this.load.image('block', 'Block.png' )
 }
 function create() {
   hero.main = this.add.sprite(100,400, 'block')
