@@ -20,7 +20,7 @@ var config = {
 var game = new Phaser.Game(config)
 function preload() {
   //this.load.image('blockimage', 'Block.png')
-  this.load.image('starrynight' 'starrynight.jpg')
+  this.load.image('starrynight', 'starrynight.jpg')
 }
 function create() {
   hero.main = this.physics.add.sprite(100,400, 'blockimage')
