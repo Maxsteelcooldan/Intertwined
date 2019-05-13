@@ -1,5 +1,4 @@
 const hero = {}
-var keyA, keyW, keyD
 
 const config = {
   type: Phaser.AUTO,
@@ -36,15 +35,17 @@ function create() {
   hero.main.setCollideWorldBounds(true)
 }
 function update() {
-  if(hero.cursors.right.isDown || hero.keyD.isDown ) {
+  if(hero.cursors.right.isDown || hero.keyD.isDown) {
     hero.main.x += 5
   } else if (hero.cursors.left.isDown || hero.keyA.isDown) {
     hero.main.x -= 5
   } else if (hero.cursors.up.isDown || hero.keyW.isDown) {
     hero.main.y -= 5
-  } 
-  if(hero.keyW && hero.keyA) {
-    hero.main.y -= 5
-    hero.main.x -= 5
+  } if(hero.keyW.isDown && hero.keyA.isDown || hero.cursors.up.isDown && hero.cursors.left.isDown) {
+    hero.main.y -= 5;
+    hero.main.x -= 5;
+  } if(hero.keyW.isDown && hero.keyD.isDown || hero.cursors.up.isDown && hero.cursors.right.isDown) {
+    hero.main.y -= 5;
+    hero.main.x += 5;
   }
 }
