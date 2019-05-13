@@ -8,7 +8,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 300 },
+      gravity: { y: 500 },
       enableBody: true,
     }
   },
@@ -23,8 +23,7 @@ const config = {
 const game = new Phaser.Game(config)
 
 function preload() {
-  this.load.image('block', 'assets/block.png' )
-  this.load.image('ground', 'assets/block.png')
+  this.load.image('block', 'Block.png' )
 }
 function create() {
   hero.main = this.physics.add.sprite(100,400, 'block')
