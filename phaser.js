@@ -7,7 +7,7 @@ var config = {
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { y: 500 },
+      gravity: { y: 300 },
       enableBody: true,
     }
   },
@@ -19,15 +19,15 @@ var config = {
 }
 var game = new Phaser.Game(config)
 function preload() {
-  this.load.image('block', 'Block.png' )
+  //this.load.image('blockimage', 'Block.png')
 }
 function create() {
-  hero.main = this.physics.add.sprite(100,400, 'block')
+  hero.main = this.physics.add.sprite(100,400, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
   hero.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-  hero.main.setCollideWorldBounds(true)
+  hero.main.setCollideWorldBounds(true);
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
