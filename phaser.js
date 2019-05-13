@@ -23,7 +23,7 @@ function preload() {
   this.load.image('starrynight', 'starrynight.jpg')
 }
 function create() {
-  hero.image = this.add.image(60,50, 'starrynight')
+  hero.image = this.add.tileSprite(60,50,0,0  'starrynight')
   hero.main = this.physics.add.sprite(100,400, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -45,4 +45,5 @@ function update() {
     hero.main.y -= 5;
     hero.main.x += 5;
   }
+  starrynight.tilePosition += 2
 }
