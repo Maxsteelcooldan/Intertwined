@@ -34,8 +34,6 @@ function create() {
   hero.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
   hero.main.setCollideWorldBounds(true)
-  platforms = this.physics.add.staticGroup();
-  platforms.create(400, 568, 'ground').setScale(2).refreshBody();
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown ) {
@@ -45,4 +43,8 @@ function update() {
   } else if (hero.cursors.up.isDown || hero.keyW.isDown) {
     hero.main.y -= 5
   } 
+  if(hero.keyW && hero.keyA) {
+    hero.main.y -= 5
+    hero.main.x -= 5
+  }
 }
