@@ -3,7 +3,7 @@ var config = {
   type: Phaser.AUTO,
   width: 450,
   height: 500,
-  backgroundColor: "b9eaff",
+  backgroundColor: "000000",
   physics: {
     default: 'arcade',
     arcade: {
@@ -23,6 +23,7 @@ function preload() {
   this.load.image('starrynight', 'starrynight.jpg')
 }
 function create() {
+  hero.image = this.add.image(60,50, 'starrynight')
   hero.main = this.physics.add.sprite(100,400, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
