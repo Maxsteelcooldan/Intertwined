@@ -45,5 +45,5 @@ function update() {
     hero.main.y -= 5;
     hero.main.x += 5;
   }
-  starrynight.tilePosition += 2
+  hero.image.tilePosition += 2
 }
