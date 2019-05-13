@@ -1,6 +1,5 @@
-const hero = {}
-
-const config = {
+var hero = {};
+var config = {
   type: Phaser.AUTO,
   width: 450,
   height: 500,
@@ -18,10 +17,7 @@ const config = {
     update
   }
 }
-
-
-const game = new Phaser.Game(config)
-
+var game = new Phaser.Game(config)
 function preload() {
   this.load.image('block', 'Block.png' )
 }
