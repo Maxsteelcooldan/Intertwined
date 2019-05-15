@@ -18,16 +18,22 @@ var config = {
   }
 }
 var game = new Phaser.Game(config)
+var map;
+var layer;
 function preload() {
   //this.load.image('blockimage', 'Block.png')
+  this.load.tilemap('one', 'untitled.csv');
+  this.load.image('tileone','Thereal.png' )
 }
 function create() {
-  hero.image = this.add.tileSprite(60,50,0,0,  'starrynight')
+  hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
   hero.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-  hero.main.setCollideWorldBounds(true);
+  map.addTilesetImage('tileone')
+  layer = map.createLayer(0);
+  layer.resizeWorld
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
