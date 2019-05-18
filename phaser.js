@@ -22,12 +22,13 @@ var game = new Phaser.Game(config)
 function preload() {
   //this.load.image('blockimage', 'Block.png')
     this.load.image('tiles', 'TheReal.png');
-    this.load.tilemapCSV('map', 'Levelone.csv');
+    this.load.tilemapCSV('map', 'Levelone_2.csv');
 }
 function create() {
   var map = this.make.tilemap({ key: 'map', tileWidth: 16, tileHeight: 16 });
   var tileset = map.addTilesetImage('tiles');
-  var layer = map.createStaticLayer("Tile Layer 1", tileset, 100, 100);
+  var onelayer = map.createStaticLayer(1, tileset, 0, 0);
+  var twolayer = map.createStaticLayer(2, tileset, 0, 0);
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
