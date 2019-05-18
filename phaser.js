@@ -21,12 +21,14 @@ var game = new Phaser.Game(config)
 
 function preload() {
   //this.load.image('blockimage', 'Block.png')
-    this.load.image('tiles', 'TheReal.png');
-    this.load.tilemapCSV('map', 'Levelone_2.csv');
+   this.load.image("tiles", "TheReal.png");
+  this.load.tilemapTiledJSON("map", "Map.json");
 }
 function create() {
-  var map = this.make.tilemap({ key: 'map', tileWidth: 16, tileHeight: 16 });
-  var tileset = map.addTilesetImage('tiles');
+  const map = this.make.tilemap({ key: "map" });
+  const tileset = map.addTilesetImage("tuxmon-sample-32px-extruded", "tiles");
+  const belowLayer = map.createStaticLayer(1, tileset, 0, 0);
+  const worldLayer = map.createStaticLayer("2", tileset, 0, 0);
   var onelayer = map.createStaticLayer(1, tileset, 0, 0);
   var twolayer = map.createStaticLayer(2, tileset, 0, 0);
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
