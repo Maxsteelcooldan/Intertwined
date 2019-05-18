@@ -1,8 +1,8 @@
 var hero = {};
 var config = {
   type: Phaser.AUTO,
-  width: 450,
-  height: 500,
+  width: 850,
+  height: 800,
   backgroundColor: "b9eaff",
   physics: {
     default: 'arcade',
@@ -27,7 +27,7 @@ function preload() {
 function create() {
   var map = this.make.tilemap({ key: 'map', tileWidth: 16, tileHeight: 16 });
   var tileset = map.addTilesetImage('tiles');
-  var layer = map.createStaticLayer(10, tileset, 10, 10);
+  var layer = map.createStaticLayer(1, tileset, 1, 1);
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
