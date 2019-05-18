@@ -27,8 +27,8 @@ function preload() {
 function create() {
   const map = this.make.tilemap({ key: "map" });
   const tileset = map.addTilesetImage("tiles2", "tiles");
-  const belowLayer = map.createStaticLayer(1, tileset, 0, 0);
-  const worldLayer = map.createStaticLayer(2, tileset, 0, 0);
+  const belowLayer = map.createStaticLayer(0, tileset, 0, 0);
+  const worldLayer = map.createStaticLayer(1, tileset, 0, 0);
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
