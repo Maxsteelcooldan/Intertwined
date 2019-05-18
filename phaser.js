@@ -26,7 +26,7 @@ function preload() {
 }
 function create() {
   const map = this.make.tilemap({ key: "map" });
-  const tileset = map.addTilesetImage("tiles2", "tiles");
+  const tileset = map.addTilesetImage("tiles", "tiles");
   const belowLayer = map.createStaticLayer(0, tileset, 0, 0);
   const worldLayer = map.createStaticLayer(1, tileset, 0, 0);
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
