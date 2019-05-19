@@ -21,7 +21,7 @@ var game = new Phaser.Game(config)
 
 function preload() {
   //this.load.image('blockimage', 'Block.png')
-   this.load.image("tiles", "TheReal.png");
+   this.load.image("tiles", "TheReal 1.png");
   this.load.tilemapTiledJSON("map", "Map.json");
 }
 function create() {
