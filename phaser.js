@@ -37,7 +37,7 @@ function create() {
   this.physics.add.collider(hero.main, bottomlayer)
   bottomlayer.setCollisionByProperty({collides:true})
   this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
-  this.cameras.main.startFollow(player);
+  this.cameras.main.startFollow(hero.main);
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
