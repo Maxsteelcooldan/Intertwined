@@ -21,11 +21,11 @@ var game = new Phaser.Game(config)
 
 function preload() {
   //this.load.image('blockimage', 'Block.png')
-  this.load.image('items','assets/TheReal_1.png')
+  this.load.image('tileone','assets/TheReal_1.png')
   this.load.tilemapTiledJSON('mapone','assets/Mapone.json')
 }
 function create() {
-  var map = this.add.tilemap('map')
+  var map = this.add.tilemap('mapone')
   var tileone = map.addTilesetImage('tileone','tileone')
   var toplayer = map.createStaticLayer("topone", [tileone], 0, 0)
   var bottomlayer = map.createStaticLayer("bottomone", [tileone], 0, 0)
