@@ -2,7 +2,7 @@ var hero = {};
 var config = {
   type: Phaser.AUTO,
   width: 850,
-  height: 800,
+  height: 600,
   backgroundColor: "b9eaff",
   physics: {
     default: 'arcade',
