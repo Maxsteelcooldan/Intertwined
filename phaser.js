@@ -34,7 +34,8 @@ function create() {
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
   hero.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-
+  this.physics.add.collider(hero.main, bottomlayer)
+  bottomlayer.setCollisionByProperty({collides:true})
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
