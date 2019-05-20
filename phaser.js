@@ -36,8 +36,6 @@ function create() {
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
   this.physics.add.collider(hero.main, bottomlayer)
   bottomlayer.setCollisionByProperty({collides:true})
-  this.cameras.main.setBounds(400, 400, map.widthInPixel, map.heightInPixels);
-  this.cameras.main.startFollow(hero.main);
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
