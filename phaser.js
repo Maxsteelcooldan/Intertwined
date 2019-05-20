@@ -25,7 +25,8 @@ function preload() {
   this.load.tilemapTiledJSON("map", "Map.json");
 }
 function create() {
-  
+  var map = this.add.tilemap("map")
+  var tiles = map.addTilesetImage("TheReal 1","tiles")
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
