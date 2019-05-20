@@ -22,13 +22,13 @@ var game = new Phaser.Game(config)
 function preload() {
   //this.load.image('blockimage', 'Block.png')
   this.load.image('items','TheReal_1.png')
-  this.load.tilemapTiledJSON('map','Map.json')
+  this.load.tilemapTiledJSON('mapone','Mapone.json')
 }
 function create() {
   var map = this.add.tilemap('map')
-  var tiles = map.addTilesetImage('tiles','items')
-  var toplayer = map.createStaticLayer("top", [tiles], 0, 0)
-  var bottomlayer = map.createStaticLayer("bottom", [tiles], 0, 0)
+  var tileone = map.addTilesetImage('tileone','tileone')
+  var toplayer = map.createStaticLayer("topone", [tileone], 0, 0)
+  var bottomlayer = map.createStaticLayer("bottomone", [tileone], 0, 0)
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
