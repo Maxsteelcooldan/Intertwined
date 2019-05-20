@@ -27,8 +27,8 @@ function preload() {
 function create() {
   var map = this.add.tilemap('mapone')
   var tileone = map.addTilesetImage('tileone','tileone')
-  var toplayer = map.createStaticLayer("topone", [tileone], 0, 0)
-  var bottomlayer = map.createStaticLayer("bottomone", [tileone], 0, 0)
+  var toplayer = map.createStaticLayer("topOne", [tileone], 0, 0)
+  var bottomlayer = map.createStaticLayer("bottomOne", [tileone], 0, 0)
   hero.main = this.physics.add.sprite(200,200, 'blockimage')
   hero.cursors = this.input.keyboard.createCursorKeys();
   hero.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
