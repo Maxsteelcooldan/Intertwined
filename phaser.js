@@ -20,7 +20,7 @@ var config = {
 var game = new Phaser.Game(config)
 
 function preload() {
-  //this.load.image('blockimage', 'Block.png')
+  this.load.image('blockimage', 'Block.png')
   this.load.image('tileone','assets/TheReal_1.png')
   this.load.tilemapTiledJSON('mapone','assets/Mapone.json')
 }
@@ -36,6 +36,8 @@ function create() {
   hero.keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
   this.physics.add.collider(hero.main, bottomlayer)
   bottomlayer.setCollisionByProperty({collides:true})
+  this.cameras.main.setBounds(0, 0, map.widthInPixels, map.heightInPixels);
+  this.cameras.main.startFollow(player);
 }
 function update() {
   if(hero.cursors.right.isDown || hero.keyD.isDown) {
